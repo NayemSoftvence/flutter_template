@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:template_flutter/helpers/ui_helpers.dart';
+import '../../../helpers/ui_helpers.dart';
+
 
 class ExampleScreen extends StatelessWidget {
   const ExampleScreen({super.key});

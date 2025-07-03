@@ -18,9 +18,8 @@ void main() async {
   await GetStorage.init();
   diSetup();
   // initiInternetChecker();
-
+// await LocationService.instance.initialize();
   DioSingleton.instance.create();
-
   runApp(const MyApp());
 }
 
