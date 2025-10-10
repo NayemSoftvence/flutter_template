@@ -4,6 +4,8 @@
 // import '../../../../../networks/rx_base.dart';
 // import '../../../../common_widgets/custom_toast.dart';
 // import 'api.dart';
+// import '../../../../helpers/error_message_Handler.dart';
+
 
 // final class GetExampleRx extends RxResponseInt {
 //   final api = GetExampleApi.instance;
@@ -26,18 +28,9 @@
 //     return true;
 //   }
 
-//   @override
-//   handleErrorWithReturn(error) {
-//     String message = 'Something went wrong';
-//     log(error.toString());
-//     if (error is DioException) {
-//       message = error.response?.data["message"] ?? "Something went wrong";
-//       if (error.type == DioExceptionType.connectionError) {
-//         message = "Check Your Network Connection";
-//       }
-//     }
-//     customToastMessage('Error', message);
-//     return false;
 
+// @override
+//   handleErrorWithReturn(error) {
+//     ErrorMessageHandler.showErrorToast(error); // Just one call!
+//     return false;
 //   }
-// }

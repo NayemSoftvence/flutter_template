@@ -1,7 +1,7 @@
 // import 'dart:developer';
 // import 'package:dio/dio.dart';
 // import 'package:rxdart/rxdart.dart';
-
+// import '../../../../helpers/error_message_Handler.dart';
 // import '../../../../common_widgets/custom_toast.dart';
 // import '../../../../networks/rx_base.dart';
 // import 'api.dart';
@@ -26,25 +26,8 @@
 //     }
 //   }
 
-//   @override
-//   handleSuccessWithReturn(data) async {
-
-//     return true;
-//   }
-
-//   @override
+// @override
 //   handleErrorWithReturn(error) {
-//     String message = 'Something went wrong';
-//     log(error.toString());
-//     if (error is DioException) {
-//       message = error.response?.data["message"] ?? "Something went wrong";
-//       if (error.type == DioExceptionType.connectionError) {
-//         message = "Check Your Network Connection";
-//       }
-//       // log("Error: $message, Code: $code");
-//     }
-//     customToastMessage('Error', message);
+//     ErrorMessageHandler.showErrorToast(error); // Just one call!
 //     return false;
-//     //return super.handleErrorWithReturn(message);
 //   }
-// }
