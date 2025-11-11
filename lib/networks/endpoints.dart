@@ -17,8 +17,8 @@ final class NetworkConstants {
 final class Endpoints {
   Endpoints._();
   //backend_url
-  // static String signUp() => "/api/register";
-  // static String logIn() => "/api/login";
+  static String signUp() => "/api/register";
+  static String logIn() => "/api/login";
   // static String getShopByCategories(String slug) =>
   //     "/api/shop-categories/$slug/";
 

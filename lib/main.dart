@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:auto_animated/auto_animated.dart';
 import 'constants/custome_theme.dart';
+import 'features/auth/presentation/login.dart';
 import 'gen/colors.gen.dart';
 import 'helpers/all_routes.dart';
 import 'helpers/di.dart';
@@ -79,7 +80,7 @@ class UtillScreenMobile extends StatelessWidget {
               },
               navigatorKey: NavigationService.navigatorKey,
               onGenerateRoute: RouteGenerator.generateRoute,
-              home: const Loading()),
+              home: LoginScreen()),
         );
       },
     );
