@@ -20,7 +20,7 @@ final class DioSingleton {
       receiveTimeout: const Duration(milliseconds: 100000),
       headers: {
         NetworkConstants.ACCEPT: NetworkConstants.ACCEPT_TYPE,
-        NetworkConstants.APP_KEY: NetworkConstants.APP_KEY_VALUE,
+        NetworkConstants.CONTENT_TYPE: NetworkConstants.ACCEPT_TYPE,
       },
     );
 
@@ -46,6 +46,7 @@ final class DioSingleton {
       responseType: ResponseType.json,
       headers: {
         NetworkConstants.ACCEPT: NetworkConstants.ACCEPT_TYPE,
+         NetworkConstants.CONTENT_TYPE: NetworkConstants.ACCEPT_TYPE,
         NetworkConstants.AUTHORIZATION: "Bearer $auth",
       },
       connectTimeout: const Duration(milliseconds: 100000),

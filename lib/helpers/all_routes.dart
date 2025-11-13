@@ -2,9 +2,11 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:template_flutter/features/auth/product/presentation/products.dart';
 
 import '../features/auth/presentation/login.dart';
 import '../features/auth/presentation/signup.dart';
+import '../features/auth/product/presentation/products_with_pagination.dart' as products_pagination;
 
 final class Routes {
   static final Routes _routes = Routes._internal();
@@ -17,6 +19,10 @@ final class Routes {
   static const String forgotPWScreen = '/ForgotPWScreen';
   static const String otpScreen = '/OtpScreen';
   static const String setPassword = '/SetPassword';
+  //products_with_pagination
+  static const String productsWithPagination = '/ProductsWithPagination';
+  //ProductsScreen
+  static const String productsScreen = '/ProductsScreen';
   
   // Main App Routes
   static const String homeScreen = '/home_screen';
@@ -41,6 +47,15 @@ final class RouteGenerator {
         return defaultTargetPlatform == TargetPlatform.iOS
             ? CupertinoPageRoute(builder: (context) => const SignUpScreen())
             : _FadedTransitionRoute(widget: const SignUpScreen(), settings: settings);
+
+      case Routes.productsWithPagination:
+        return defaultTargetPlatform == TargetPlatform.iOS 
+            ? CupertinoPageRoute(builder: (context) => const products_pagination.ProductsScreen())
+            : _FadedTransitionRoute(widget: const products_pagination.ProductsScreen(), settings: settings);
+                  case Routes.productsScreen:
+        return defaultTargetPlatform == TargetPlatform.iOS 
+            ? CupertinoPageRoute(builder: (context) => const ProductsScreen())
+            : _FadedTransitionRoute(widget: const ProductsScreen(), settings: settings);
       
       // case Routes.forgotPWScreen:
       //   return defaultTargetPlatform == TargetPlatform.iOS

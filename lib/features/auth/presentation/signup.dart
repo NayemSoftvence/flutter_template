@@ -123,14 +123,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 // Title
                 Text(
                   "Create Account",
-                  style: TextFontStyle.textStyle26c202020OpenSans600,
+                  style: TextFontStyle.textStyle26c202020DMSans600,
                 ),
                 
                 UIHelper.verticalSpace(8.h),
                 
                 Text(
                   "Fill your information below or register\nwith your social account",
-                  style: TextFontStyle.textStyle14c606060OpenSans400.copyWith(
+                  style: TextFontStyle.textStyle14c606060DMSans400.copyWith(
                     height: 1.5,
                   ),
                   textAlign: TextAlign.center,
@@ -224,8 +224,8 @@ Row(
         ),
         activeColor: AppColors.allPrimaryColor,
         checkColor: AppColors.cFFFFFF, // White checkmark
-        fillColor: MaterialStateProperty.resolveWith<Color>((states) {
-          if (states.contains(MaterialState.selected)) {
+        fillColor: WidgetStateProperty.resolveWith<Color>((states) {
+          if (states.contains(WidgetState.selected)) {
             return AppColors.allPrimaryColor; // Selected color
           }
           return AppColors.cE8E8E8; // Unselected color
@@ -244,11 +244,11 @@ Row(
             children: [
               TextSpan(
                 text: "I agree to the ",
-                style: TextFontStyle.textStyle14c606060OpenSans400,
+                style: TextFontStyle.textStyle14c606060DMSans400,
               ),
               TextSpan(
                 text: "Terms & Conditions",
-                style: TextFontStyle.textStyle14c606060OpenSans400.copyWith(
+                style: TextFontStyle.textStyle14c606060DMSans400.copyWith(
                   color: AppColors.allPrimaryColor,
                   fontWeight: FontWeight.w600,
                   decoration: TextDecoration.underline,
@@ -285,7 +285,7 @@ Row(
                       padding: EdgeInsets.symmetric(horizontal: 16.w),
                       child: Text(
                         "Or",
-                        style: TextFontStyle.textStyle14c383838OpenSans600,
+                        style: TextFontStyle.textStyle14c383838DMSans600,
                       ),
                     ),
                     Expanded(child: _horizontalLine()),

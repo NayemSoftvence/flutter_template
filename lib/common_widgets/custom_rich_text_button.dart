@@ -1,8 +1,6 @@
 // lib/widgets/buttons/custom_rich_text_button.dart
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '/constants/text_font_style.dart';
-import '/helpers/ui_helpers.dart';
 
 class CustomRichTextButton extends StatelessWidget {
   const CustomRichTextButton({
@@ -33,11 +31,11 @@ class CustomRichTextButton extends StatelessWidget {
           children: [
             TextSpan(
               text: additionalText,
-              style: TextFontStyle.textStyle14c606060OpenSans400,
+              style: TextFontStyle.textStyle14c606060DMSans400,
             ),
             TextSpan(
               text: buttonText,
-              style: TextFontStyle.textStyle14cFF3A1222OpenSans600,
+              style: TextFontStyle.textStyle14cFF3A1222DMSans600
             ),
           ],
         ),

@@ -1,4 +1,6 @@
 
+import 'dart:developer';
+
 import 'package:rxdart/rxdart.dart';
 import 'package:template_flutter/constants/app_constants.dart';
 import '../../../../helpers/di.dart';
@@ -17,10 +19,10 @@ final class PostLoginRx extends RxResponseInt {
 
   Future<bool> postLogin({required String email,required String password}) async {
     try {
-      Map<String, dynamic> data = {
-        // "email": email,
-
-      };
+      Map<String, dynamic> data =           {
+  "email": "test@example.com",
+  "password": "password123"
+};
       Map resdata = await api.postLogIn(data);
       return await handleSuccessWithReturn(resdata);
     } catch (error) {
@@ -31,8 +33,10 @@ final class PostLoginRx extends RxResponseInt {
 
  @override
   handleSuccessWithReturn(data) async {
-    String? accesstoken = data['token'];
-    int id = data['data']['id'];
+    log(data.toString());
+    String? accesstoken = data['data']['token'];
+    log(accesstoken.toString());
+    int id = data['data']["user"]['id'];
     DioSingleton.instance.update(accesstoken!);
     await appData.write(kKeyIsLoggedIn, true);
     await appData.write(kKeyIsExploring, false);

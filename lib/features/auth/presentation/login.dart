@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:template_flutter/common_widgets/custom_toast.dart';
@@ -29,6 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _passController = TextEditingController();
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   
+
   bool _isLoading = false;
 
   @override
@@ -39,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> _login() async {
-    if (_formkey.currentState!.validate()) {
+    if (true) {
       setState(() {
         _isLoading = true;
       });
@@ -53,7 +55,11 @@ class _LoginScreenState extends State<LoginScreen> {
             .waitingForFutureWithoutBg();
 
         if (success) {
-        //  NavigationService.navigateTo(Routes.navBarScreen);
+          //await Future.delayed(const Duration(milliseconds: 500));
+          log("Login Successful");
+             
+          customToastMessage('Success', "You have sucessfully logged in");
+          NavigationService.navigateTo(Routes.productsScreen);
         }
       } catch (e) {
         // Handle error here
@@ -82,32 +88,32 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 UIHelper.verticalSpace(40.h),
-                
+
                 // Logo
                 // Assets.images.logo.image(
                 //   height: 80.h,
                 //   width: 80.w,
                 //   fit: BoxFit.contain,
                 // ),
-                
+
                 UIHelper.verticalSpace(40.h),
-                
+
                 // Title
                 Text(
                   "Welcome Back",
-                  style: TextFontStyle.textStyle26c202020OpenSans600,
+                  style: TextFontStyle.textStyle26c202020DMSans600,
                 ),
-                
+
                 UIHelper.verticalSpace(8.h),
-                
+
                 Text(
                   "Please sign in to your account",
-                  style: TextFontStyle.textStyle14c606060OpenSans400,
+                  style: TextFontStyle.textStyle14c606060DMSans400,
                   textAlign: TextAlign.center,
                 ),
-                
+
                 UIHelper.verticalSpace(40.h),
-                
+
                 Form(
                   key: _formkey,
                   child: Column(
@@ -121,9 +127,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         prefixIcon: Icons.email_outlined,
                         textInputAction: TextInputAction.next,
                       ),
-                      
+
                       UIHelper.verticalSpace(16.h),
-                      
+
                       // Password Field
                       CustomTextFormField(
                         validator: passwordValidator,
@@ -134,9 +140,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         prefixIcon: Icons.lock_outline,
                         textInputAction: TextInputAction.done,
                       ),
-                      
+
                       UIHelper.verticalSpace(16.h),
-                      
+
                       // Forgot Password
                       Align(
                         alignment: Alignment.centerRight,
@@ -147,9 +153,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           title: "Forgot password?",
                         ),
                       ),
-                      
+
                       UIHelper.verticalSpace(40.h),
-                      
+
                       // Login Button
                       customButton(
                         onPressed: _isLoading ? null : _login,
@@ -159,9 +165,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                 ),
-                
+
                 UIHelper.verticalSpace(40.h),
-                
+
                 // Divider with "Or"
                 Row(
                   children: [
@@ -170,20 +176,20 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: EdgeInsets.symmetric(horizontal: 16.w),
                       child: Text(
                         "Or",
-                        style: TextFontStyle.textStyle14c383838OpenSans600,
+                        style: TextFontStyle.textStyle14c383838DMSans600,
                       ),
                     ),
                     Expanded(child: _horizontalLine()),
                   ],
                 ),
-                
+
                 UIHelper.verticalSpace(40.h),
-                
+
                 // Social Login Buttons (Optional)
                 _buildSocialLoginButtons(),
-                
+
                 UIHelper.verticalSpace(40.h),
-                
+
                 // Sign Up Redirect
                 CustomRichTextButton(
                   onPressed: () {
@@ -192,7 +198,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   additionalText: "Don't have an Account? ",
                   buttonText: "Sign Up",
                 ),
-                
+
                 UIHelper.verticalSpace(20.h),
               ],
             ),
@@ -229,5 +235,4 @@ class _LoginScreenState extends State<LoginScreen> {
       ],
     );
   }
-
 }

@@ -8,7 +8,7 @@ String? emailValidator(String? value) {
   }
   return null;
 }
-
+  
 String? passwordValidator(String? value) {
   if (value == null || value.isEmpty) {
     return 'Enter Password';

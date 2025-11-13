@@ -63,7 +63,7 @@ class CustomButton extends StatelessWidget {
               )
             : Text(
                 title,
-                style: textStyle ?? TextFontStyle.textStyle16cFFFFFFOpenSans600,
+                style: textStyle ?? TextFontStyle.textStyle16cFFFFFFDMSans600,
                 textAlign: TextAlign.center,
               ),
       ),
@@ -115,7 +115,7 @@ Widget customButton({
             )
           : Text(
               title,
-              style: textStyle ?? TextFontStyle.textStyle16cFFFFFFOpenSans600,
+              style: textStyle ?? TextFontStyle.textStyle16cFFFFFFDMSans600,
               textAlign: TextAlign.center,
             ),
     ),

@@ -25,6 +25,7 @@
 
 //   @override
 //   handleSuccessWithReturn(data) async {
+//dataFetcher.sink.add(data);
 //     return true;
 //   }
 
@@ -34,3 +35,4 @@
 //     ErrorMessageHandler.showErrorToast(error); // Just one call!
 //     return false;
 //   }
+// }

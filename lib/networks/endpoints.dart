@@ -1,6 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
-const String url = "";
+const String url = "https://api.zhndev.site/wp-json/foodflow/v1";
 
 final class NetworkConstants {
   NetworkConstants._();
@@ -17,10 +17,12 @@ final class NetworkConstants {
 final class Endpoints {
   Endpoints._();
   //backend_url
-  static String signUp() => "/api/register";
-  static String logIn() => "/api/login";
+  static String signUp() => "/auth/register";
+  static String logIn() => "/auth/login";
   // static String getShopByCategories(String slug) =>
   //     "/api/shop-categories/$slug/";
 
     static String example() => "/api/";
+
+  static String products(int pageNum, int perPage) => "/products?page=$pageNum&per_page=$perPage";
 }

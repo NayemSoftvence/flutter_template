@@ -3,14 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:auto_animated/auto_animated.dart';
+import 'package:template_flutter/features/auth/presentation/login.dart';
+import 'package:template_flutter/loading_screen.dart';
 import 'constants/custome_theme.dart';
-import 'features/auth/presentation/login.dart';
+
+import 'features/auth/product/presentation/products.dart';
 import 'gen/colors.gen.dart';
 import 'helpers/all_routes.dart';
 import 'helpers/di.dart';
 import 'helpers/helper_methods.dart';
 import 'helpers/navigation_service.dart';
-import 'loading_screen.dart';
 import 'networks/dio/dio.dart';
 
 void main() async {
@@ -20,7 +22,7 @@ void main() async {
   diSetup();
   // initiInternetChecker();
 // await LocationService.instance.initialize();
-  DioSingleton.instance.create();
+DioSingleton.instance.create();
   runApp(const MyApp());
 }
 
@@ -73,14 +75,14 @@ class UtillScreenMobile extends StatelessWidget {
                   useMaterial3: false,
                   scaffoldBackgroundColor: AppColors.cFFFFFF,
                   appBarTheme: const AppBarTheme(
-                      color: AppColors.cFFFFFF, elevation: 0)),
+                      backgroundColor: AppColors.cFFFFFF, elevation: 0)),
               debugShowCheckedModeBanner: false,
               builder: (context, widget) {
                 return MediaQuery(data: MediaQuery.of(context), child: widget!);
               },
               navigatorKey: NavigationService.navigatorKey,
               onGenerateRoute: RouteGenerator.generateRoute,
-              home: LoginScreen()),
+              home: Loading()),
         );
       },
     );

@@ -12,4 +12,7 @@ class FontFamily {
 
   /// Font family: DMSans
   static const String dMSans = 'DMSans';
+
+  /// Font family: Open Sans
+  static const String openSans = 'Open Sans';
 }
