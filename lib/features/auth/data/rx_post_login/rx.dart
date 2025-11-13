@@ -1,6 +1,3 @@
-
-import 'dart:developer';
-
 import 'package:rxdart/rxdart.dart';
 import 'package:template_flutter/constants/app_constants.dart';
 import '../../../../helpers/di.dart';
@@ -14,15 +11,12 @@ final class PostLoginRx extends RxResponseInt {
   final api = PostLoginApi.instance;
   String message = "Something went wrong";
   PostLoginRx({required super.empty, required super.dataFetcher});
-
   ValueStream get getPostLoginRes => dataFetcher.stream;
 
-  Future<bool> postLogin({required String email,required String password}) async {
+  Future<bool> postLogin(
+      {required String email, required String password}) async {
     try {
-      Map<String, dynamic> data =           {
-  "email": "test@example.com",
-  "password": "password123"
-};
+      Map<String, dynamic> data = {"email": email, "password": password};
       Map resdata = await api.postLogIn(data);
       return await handleSuccessWithReturn(resdata);
     } catch (error) {
@@ -30,12 +24,10 @@ final class PostLoginRx extends RxResponseInt {
     }
   }
 
-
- @override
+  @override
   handleSuccessWithReturn(data) async {
-    log(data.toString());
     String? accesstoken = data['data']['token'];
-    log(accesstoken.toString());
+
     int id = data['data']["user"]['id'];
     DioSingleton.instance.update(accesstoken!);
     await appData.write(kKeyIsLoggedIn, true);
@@ -45,11 +37,11 @@ final class PostLoginRx extends RxResponseInt {
 
     dataFetcher.sink.add(data);
     performPostLoginActions();
-  
+
     return true;
   }
 
-@override
+  @override
   handleErrorWithReturn(error) {
     ErrorMessageHandler.showErrorToast(error); // Just one call!
     return false;

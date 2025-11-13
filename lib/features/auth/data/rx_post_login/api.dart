@@ -14,7 +14,7 @@ final class PostLoginApi {
         Endpoints.logIn(),
         data,
       );
-      if (response.statusCode == 200) {
+      if (response.statusCode == 200 || response.statusCode == 201) {
         Map data = json.decode(json.encode(response.data));
         return data;
       } else {

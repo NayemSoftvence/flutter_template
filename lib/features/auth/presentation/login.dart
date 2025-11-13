@@ -76,6 +76,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    _emailController.text = "test@example.com";
+    _passController.text = "password123";
     return Scaffold(
       backgroundColor: AppColors.scaffoldColor,
       body: SafeArea(
