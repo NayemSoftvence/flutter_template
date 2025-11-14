@@ -18,7 +18,7 @@ void main() async {
   await GetStorage.init();
   diSetup();
   // initiInternetChecker();
-// await LocationService.instance.initialize();
+ // await LocationService.instance.initialize();
 DioSingleton.instance.create();
   runApp(const MyApp());
 }
@@ -64,7 +64,7 @@ class UtillScreenMobile extends StatelessWidget {
           onPopInvokedWithResult: (bool didPop, _) async {
             showMaterialDialog(context);
           },
-          child: GetMaterialApp(
+          child: MaterialApp(
               //    showPerformanceOverlay: true,
               theme: ThemeData(
                   unselectedWidgetColor: Colors.white,

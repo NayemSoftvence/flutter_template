@@ -1,10 +1,8 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:template_flutter/features/auth/presentation/login.dart';
-import 'package:template_flutter/features/product/presentation/products.dart';
 import 'constants/app_constants.dart';
-import 'features/home/presentation/home.dart';
+import 'features/auth/presentation/login.dart';
+import 'features/product/presentation/products.dart';
 import 'helpers/di.dart';
 import 'helpers/helper_methods.dart';
 import 'helpers/post_login.dart';

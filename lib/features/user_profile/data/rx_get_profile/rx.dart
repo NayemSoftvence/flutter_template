@@ -1,7 +1,7 @@
 import 'package:rxdart/rxdart.dart';
-import '../../../../../networks/rx_base.dart';
+import '../../../../../../networks/rx_base.dart';
 import 'api.dart';
-import '../../../../helpers/error_message_Handler.dart';
+import '../../../../../helpers/error_message_Handler.dart';
 
 
 final class GetProfileRx extends RxResponseInt {

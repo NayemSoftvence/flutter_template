@@ -2,7 +2,7 @@ import 'package:rxdart/rxdart.dart';
 import 'package:template_flutter/features/auth/data/rx_post_login/rx.dart';
 import 'package:template_flutter/features/auth/data/rx_post_signup/rx.dart';
 import 'package:template_flutter/features/product/data/rx_get_product_details/rx.dart';
-import 'package:template_flutter/features/user_profile/rx_get_profile/rx.dart';
+import 'package:template_flutter/features/user_profile/data/rx_get_profile/rx.dart';
 import '../features/product/data/rx_get_products/rx.dart';
 
 

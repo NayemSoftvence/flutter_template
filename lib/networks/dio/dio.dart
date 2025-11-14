@@ -90,11 +90,11 @@ final class DioSingleton {
     // }
   }
 
-  void _navigateToScreen(String route) {
-    if (getx.Get.currentRoute != route) {
-      getx.Get.offAllNamed(route);
-    }
-  }
+  // void _navigateToScreen(String route) {
+  //   if (getx.Get.currentRoute != route) {
+  //     getx.Get.offAllNamed(route);
+  //   }
+  // }
 }
 
 // Simplified HTTP methods - global errors are already handled by interceptor
