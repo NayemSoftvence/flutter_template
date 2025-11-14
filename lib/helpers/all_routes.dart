@@ -2,12 +2,12 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-import 'package:template_flutter/features/auth/product/presentation/products.dart';
+import 'package:template_flutter/features/product/presentation/products.dart';
 
 import '../features/auth/presentation/login.dart';
 import '../features/auth/presentation/signup.dart';
-import '../features/auth/product/presentation/product_details.dart';
-import '../features/auth/product/presentation/products_with_pagination.dart' as products_pagination;
+import '../features/product/presentation/product_details.dart';
+import '../features/product/presentation/products_with_pagination.dart' as products_pagination;
 import '../features/user_profile/presentation/profile.dart';
 
 final class Routes {

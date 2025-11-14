@@ -16,6 +16,9 @@
 
 //   Future<bool> featchExample() async {
 //     try {
+
+      // Clear previous data before making new API call if needed
+     // dataFetcher.sink.add(empty);
 //       Map data = await api.getExampleData();
 //        return await handleSuccessWithReturn(data);
 //     } catch (error) {
