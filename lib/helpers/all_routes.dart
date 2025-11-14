@@ -6,7 +6,9 @@ import 'package:template_flutter/features/auth/product/presentation/products.dar
 
 import '../features/auth/presentation/login.dart';
 import '../features/auth/presentation/signup.dart';
+import '../features/auth/product/presentation/product_details.dart';
 import '../features/auth/product/presentation/products_with_pagination.dart' as products_pagination;
+import '../features/user_profile/presentation/profile.dart';
 
 final class Routes {
   static final Routes _routes = Routes._internal();
@@ -23,11 +25,14 @@ final class Routes {
   static const String productsWithPagination = '/ProductsWithPagination';
   //ProductsScreen
   static const String productsScreen = '/ProductsScreen';
+  //ProductDetailsScreen
+  static const String productDetailsScreen = '/ProductDetailsScreen';
   
   // Main App Routes
   static const String homeScreen = '/home_screen';
   static const String navigationScreen = '/NavigationScreen';
   static const String profile = '/Profile';
+
 }
 
 final class RouteGenerator {
@@ -56,6 +61,11 @@ final class RouteGenerator {
         return defaultTargetPlatform == TargetPlatform.iOS 
             ? CupertinoPageRoute(builder: (context) => const ProductsScreen())
             : _FadedTransitionRoute(widget: const ProductsScreen(), settings: settings);
+      case Routes.productDetailsScreen:
+        final args = settings.arguments as Map;
+        return defaultTargetPlatform == TargetPlatform.iOS 
+            ? CupertinoPageRoute(builder: (context) => ProductDetailsScreen(productId: args['productId']))
+            : _FadedTransitionRoute(widget: ProductDetailsScreen(productId: args['productId']), settings: settings);
       
       // case Routes.forgotPWScreen:
       //   return defaultTargetPlatform == TargetPlatform.iOS
@@ -91,10 +101,10 @@ final class RouteGenerator {
       //       ? CupertinoPageRoute(builder: (context) => const NavigationScreen())
       //       : _FadedTransitionRoute(widget: const NavigationScreen(), settings: settings);
       
-      // case Routes.profile:
-      //   return defaultTargetPlatform == TargetPlatform.iOS
-      //       ? CupertinoPageRoute(builder: (context) => const ProfileScreen())
-      //       : _FadedTransitionRoute(widget: const ProfileScreen(), settings: settings);
+      case Routes.profile:
+        return defaultTargetPlatform == TargetPlatform.iOS
+            ? CupertinoPageRoute(builder: (context) => const ProfileScreen())
+            : _FadedTransitionRoute(widget: const ProfileScreen(), settings: settings);
 
       default:
         return null;

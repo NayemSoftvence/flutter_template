@@ -8,6 +8,7 @@ import 'package:template_flutter/common_widgets/waiting_widget.dart';
 import 'package:template_flutter/constants/text_font_style.dart';
 import 'package:template_flutter/gen/colors.gen.dart';
 import 'package:template_flutter/networks/api_acess.dart';
+import '../../../../helpers/all_routes.dart';
 import '../model/product_model.dart';
 import 'widget/product_widget.dart';
 
@@ -36,6 +37,18 @@ class _ProductsScreenState extends State<ProductsScreen> {
           style: TextFontStyle.textStyle18c172B4DDMSans500.copyWith(color: AppColors.cFFFFFF),
         ),
         centerTitle: true,
+        isSuffix: true,
+       actions: [
+          //user profile icon button
+          IconButton(
+            icon: const Icon(Icons.person, color: Colors.white),
+            onPressed: () {
+              Navigator.pushNamed(context, Routes.profile);
+            },
+          ),
+
+
+       ],
       ),
       body: SafeArea(
         child: StreamBuilder(

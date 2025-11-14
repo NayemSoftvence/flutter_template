@@ -2,6 +2,8 @@ import 'dart:developer';
 
 import 'package:rxdart/subjects.dart';
 
+import '../helpers/error_message_Handler.dart';
+
 abstract class RxResponseInt<T> {
   T empty;
   BehaviorSubject<T> dataFetcher;
@@ -22,7 +24,8 @@ abstract class RxResponseInt<T> {
   dynamic handleErrorWithReturn(dynamic error) {
     log(error.toString());
     dataFetcher.sink.addError(error);
-    throw error;
+    ErrorMessageHandler.showErrorToast(error);
+    return false;
   }
 
   void clean() {

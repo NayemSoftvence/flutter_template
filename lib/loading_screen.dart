@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:template_flutter/features/auth/presentation/login.dart';
+import 'package:template_flutter/features/auth/product/presentation/products.dart';
 import 'constants/app_constants.dart';
 import 'features/home/presentation/home.dart';
 import 'helpers/di.dart';
@@ -66,10 +68,10 @@ class _LoadingState extends State<Loading> {
       return const WelcomeScreen();
     } else {
       return appData.read(kKeyIsLoggedIn)
-          ? const HomeScreen()
+          ? const ProductsScreen()
           : appData.read(kKeyfirstTime)
-              ? const HomeScreen()
-              : const HomeScreen();
+              ? const LoginScreen()
+              : const LoginScreen();
     }
   }
 }
