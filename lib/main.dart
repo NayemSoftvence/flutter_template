@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:auto_animated/auto_animated.dart';
 import 'package:template_flutter/loading_screen.dart';
@@ -65,7 +64,6 @@ class UtillScreenMobile extends StatelessWidget {
             showMaterialDialog(context);
           },
           child: MaterialApp(
-              //    showPerformanceOverlay: true,
               theme: ThemeData(
                   unselectedWidgetColor: Colors.white,
                   primarySwatch: CustomTheme.kToDark,
