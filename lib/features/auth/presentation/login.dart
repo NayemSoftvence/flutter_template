@@ -14,7 +14,6 @@ import '/gen/colors.gen.dart';
 import '/helpers/all_routes.dart';
 import '/helpers/navigation_service.dart';
 import '/helpers/ui_helpers.dart';
-import 'package:get_storage/get_storage.dart';
 import 'widget/social_login_button.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -25,13 +24,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final box = GetStorage();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-  
-
-  bool _isLoading = false;
 
   @override
   void dispose() {
@@ -41,36 +36,24 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> _login() async {
-    if (true) {
-      setState(() {
-        _isLoading = true;
-      });
+    try {
+      final success = await postLoginRxObj
+          .postLogin(
+            email: _emailController.text.trim(),
+            password: _passController.text.trim(),
+          )
+          .waitingForFutureWithoutBg();
 
-      try {
-        final success = await postLoginRxObj
-            .postLogin(
-              email: _emailController.text.trim(),
-              password: _passController.text.trim(),
-            )
-            .waitingForFutureWithoutBg();
+      if (success) {
+        //await Future.delayed(const Duration(milliseconds: 500));
+        log("Login Successful");
 
-        if (success) {
-          //await Future.delayed(const Duration(milliseconds: 500));
-          log("Login Successful");
-             
-          customToastMessage('Success', "You have sucessfully logged in");
-          NavigationService.navigateTo(Routes.productsScreen);
-        }
-      } catch (e) {
-        // Handle error here
-        customToastMessage("Failed", "Login failed. Please try again.");
-      } finally {
-        if (mounted) {
-          setState(() {
-            _isLoading = false;
-          });
-        }
+        customToastMessage('Success', "You have sucessfully logged in");
+        NavigationService.navigateTo(Routes.productsScreen);
       }
+    } catch (e) {
+      // Handle error here
+      customToastMessage("Failed", "Login failed. Please try again.");
     }
   }
 
@@ -90,13 +73,6 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 UIHelper.verticalSpace(40.h),
-
-                // Logo
-                // Assets.images.logo.image(
-                //   height: 80.h,
-                //   width: 80.w,
-                //   fit: BoxFit.contain,
-                // ),
 
                 UIHelper.verticalSpace(40.h),
 
@@ -160,9 +136,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       // Login Button
                       customButton(
-                        onPressed: _isLoading ? null : _login,
-                        title: _isLoading ? "Signing In..." : "Sign In",
-                        isLoading: _isLoading,
+                        onPressed: _login,
+                        title: "Sign In",
+                        //isLoading: _isLoading,
                       ),
                     ],
                   ),

@@ -3,8 +3,6 @@ import '../../../../helpers/error_message_Handler.dart';
 import '../../../../networks/rx_base.dart';
 import 'api.dart';
 
-
-
 final class GetProductsRx extends RxResponseInt {
   final api = GetProductsApi.instance;
 
@@ -12,10 +10,10 @@ final class GetProductsRx extends RxResponseInt {
 
   ValueStream get fileData => dataFetcher.stream;
 
-  Future<bool> featchProducts({int pageNum = 1 , int perPage = 100}) async {
+  Future<bool> featchProducts({int pageNum = 1, int perPage = 100}) async {
     try {
-      Map data = await api.getProductsData( pageNum: pageNum , perPage: perPage);
-       return await handleSuccessWithReturn(data);
+      Map data = await api.getProductsData(pageNum: pageNum, perPage: perPage);
+      return await handleSuccessWithReturn(data);
     } catch (error) {
       return await handleErrorWithReturn(error);
     }
@@ -27,8 +25,7 @@ final class GetProductsRx extends RxResponseInt {
     return true;
   }
 
-
-@override
+  @override
   handleErrorWithReturn(error) {
     ErrorMessageHandler.showErrorToast(error); // Just one call!
     return false;
