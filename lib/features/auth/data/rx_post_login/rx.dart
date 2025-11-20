@@ -1,5 +1,5 @@
 import 'package:rxdart/rxdart.dart';
-import 'package:template_flutter/constants/app_constants.dart';
+import '../../../../constants/app_constants.dart';
 import '../../../../helpers/di.dart';
 import '../../../../helpers/error_message_Handler.dart';
 import '../../../../helpers/post_login.dart';

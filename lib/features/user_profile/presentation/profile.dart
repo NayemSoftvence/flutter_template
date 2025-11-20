@@ -1,16 +1,15 @@
 // lib/features/profile/presentation/profile_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:template_flutter/common_widgets/custom_appbar.dart';
-import 'package:template_flutter/common_widgets/no_data_widget.dart';
-import 'package:template_flutter/common_widgets/not_found_widget.dart';
-import 'package:template_flutter/common_widgets/waiting_widget.dart';
-import 'package:template_flutter/constants/text_font_style.dart';
-import 'package:template_flutter/gen/colors.gen.dart';
-import 'package:template_flutter/helpers/ui_helpers.dart';
-import 'package:template_flutter/networks/api_acess.dart';
+import '../../../common_widgets/custom_appbar.dart';
+import '../../../common_widgets/no_data_widget.dart';
+import '../../../common_widgets/not_found_widget.dart';
+import '../../../common_widgets/waiting_widget.dart';
+import '../../../constants/text_font_style.dart';
+import '../../../gen/colors.gen.dart';
+import '../../../helpers/ui_helpers.dart';
+import '../../../networks/api_acess.dart';
 import '../model/user_model.dart';
-
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -40,7 +39,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
       body: SafeArea(
         child: StreamBuilder(
-          stream: profileRxObj.fileData, 
+          stream: profileRxObj.fileData,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const WaitingWidget();
@@ -69,7 +68,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     // Profile Header
                     _buildProfileHeader(user!),
                     UIHelper.verticalSpace(24.h),
-                    
+
                     // Profile Details
                     _buildProfileDetails(user),
                   ],
@@ -124,15 +123,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  user.name??'',
+                  user.name ?? '',
                   style: TextFontStyle.textStyle18c202020DMSans600,
                 ),
                 UIHelper.verticalSpace(4.h),
                 Text(
-                  user.email??'',
+                  user.email ?? '',
                   style: TextFontStyle.textStyle14c606060DMSans400,
                 ),
-         
               ],
             ),
           ),
@@ -160,22 +158,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
           _buildDetailItem(
             icon: Icons.person_outline,
             title: 'Full Name',
-            value: user.name??'',
+            value: user.name ?? '',
           ),
           _buildDivider(),
           _buildDetailItem(
             icon: Icons.email_outlined,
             title: 'Email Address',
-            value: user.email??'',
+            value: user.email ?? '',
           ),
           _buildDivider(),
           _buildDetailItem(
             icon: Icons.phone_outlined,
             title: 'Phone Number',
-            value: user.phone??'',
+            value: user.phone ?? '',
           ),
           _buildDivider(),
-    
         ],
       ),
     );
@@ -223,6 +220,4 @@ class _ProfileScreenState extends State<ProfileScreen> {
       color: AppColors.cE8E8E8,
     );
   }
-
-
 }

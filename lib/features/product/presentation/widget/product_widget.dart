@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:template_flutter/helpers/all_routes.dart';
-import 'package:template_flutter/helpers/navigation_service.dart';
 import '../../../../common_widgets/app_network_image.dart';
 import '../../../../constants/text_font_style.dart';
 import '../../../../gen/colors.gen.dart';
+import '../../../../helpers/all_routes.dart';
+import '../../../../helpers/navigation_service.dart';
 import '../../../../helpers/ui_helpers.dart';
 import '../../model/product_model.dart';
 

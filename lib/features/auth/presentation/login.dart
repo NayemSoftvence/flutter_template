@@ -28,6 +28,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _passController = TextEditingController();
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
+  bool _isLoading = false;
+
   @override
   void dispose() {
     _emailController.dispose();
@@ -36,24 +38,36 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> _login() async {
-    try {
-      final success = await postLoginRxObj
-          .postLogin(
-            email: _emailController.text.trim(),
-            password: _passController.text.trim(),
-          )
-          .waitingForFutureWithoutBg();
+    if (true) {
+      setState(() {
+        _isLoading = true;
+      });
 
-      if (success) {
-        //await Future.delayed(const Duration(milliseconds: 500));
-        log("Login Successful");
+      try {
+        final success = await postLoginRxObj
+            .postLogin(
+              email: _emailController.text.trim(),
+              password: _passController.text.trim(),
+            )
+            .waitingForFutureWithoutBg();
 
-        customToastMessage('Success', "You have sucessfully logged in");
-        NavigationService.navigateTo(Routes.productsScreen);
+        if (success) {
+          //await Future.delayed(const Duration(milliseconds: 500));
+          log("Login Successful");
+
+          customToastMessage('Success', "You have sucessfully logged in");
+          NavigationService.navigateTo(Routes.productsScreen);
+        }
+      } catch (e) {
+        // Handle error here
+        customToastMessage("Failed", "Login failed. Please try again.");
+      } finally {
+        if (mounted) {
+          setState(() {
+            _isLoading = false;
+          });
+        }
       }
-    } catch (e) {
-      // Handle error here
-      customToastMessage("Failed", "Login failed. Please try again.");
     }
   }
 
@@ -73,6 +87,13 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 UIHelper.verticalSpace(40.h),
+
+                // Logo
+                // Assets.images.logo.image(
+                //   height: 80.h,
+                //   width: 80.w,
+                //   fit: BoxFit.contain,
+                // ),
 
                 UIHelper.verticalSpace(40.h),
 
@@ -136,9 +157,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       // Login Button
                       customButton(
-                        onPressed: _login,
-                        title: "Sign In",
-                        //isLoading: _isLoading,
+                        onPressed: _isLoading ? null : _login,
+                        title: _isLoading ? "Signing In..." : "Sign In",
+                        isLoading: _isLoading,
                       ),
                     ],
                   ),
