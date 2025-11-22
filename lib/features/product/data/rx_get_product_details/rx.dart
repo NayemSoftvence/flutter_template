@@ -1,9 +1,6 @@
 import 'package:rxdart/rxdart.dart';
-import '../../../../helpers/error_message_Handler.dart';
 import '../../../../networks/rx_base.dart';
 import 'api.dart';
-
-
 
 final class GetProductDetailsRx extends RxResponseInt {
   final api = GetProductDetailsApi.instance;
@@ -16,9 +13,9 @@ final class GetProductDetailsRx extends RxResponseInt {
     try {
       // Clear previous data before making new API call
       dataFetcher.sink.add(empty);
-      
-      Map data = await api.getProductDetailsData(id:id);
-       return await handleSuccessWithReturn(data);
+
+      Map data = await api.getProductDetailsData(id: id);
+      return await handleSuccessWithReturn(data);
     } catch (error) {
       return await handleErrorWithReturn(error);
     }
@@ -29,7 +26,6 @@ final class GetProductDetailsRx extends RxResponseInt {
     dataFetcher.sink.add(data);
     return true;
   }
-
 
 // @override
 //   handleErrorWithReturn(error) {

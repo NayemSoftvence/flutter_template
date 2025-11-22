@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:get/get.dart' as getx;
 import '../endpoints.dart';
 import 'log.dart';
 
@@ -46,13 +45,13 @@ final class DioSingleton {
       responseType: ResponseType.json,
       headers: {
         NetworkConstants.ACCEPT: NetworkConstants.ACCEPT_TYPE,
-         NetworkConstants.CONTENT_TYPE: NetworkConstants.ACCEPT_TYPE,
+        NetworkConstants.CONTENT_TYPE: NetworkConstants.ACCEPT_TYPE,
         NetworkConstants.AUTHORIZATION: "Bearer $auth",
       },
       connectTimeout: const Duration(milliseconds: 100000),
       receiveTimeout: const Duration(milliseconds: 100000),
     );
-    
+
     dio = Dio(options)
       ..interceptors.add(Logger())
       ..interceptors.add(InterceptorsWrapper(

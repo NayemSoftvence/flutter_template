@@ -45,10 +45,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
         child: StreamBuilder(
           stream: productDetailsRxObj.fileData,
           builder: (context, snapshot) {
-
-                 if (snapshot.data == productDetailsRxObj.empty) {
-          return const WaitingWidget();
-        }
+            if (snapshot.data == productDetailsRxObj.empty) {
+              return const WaitingWidget();
+            }
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const WaitingWidget();
             } else if (snapshot.hasData && snapshot.data != null) {
@@ -57,7 +56,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               // Parse the response
               ProductDetailsResModel productDetailsResponse;
               try {
-                productDetailsResponse = ProductDetailsResModel.fromJson(responseData as Map<String, dynamic>);
+                productDetailsResponse = ProductDetailsResModel.fromJson(
+                    responseData as Map<String, dynamic>);
               } catch (e) {
                 return const NoDataWidget(
                   title: 'Data Error',
@@ -80,13 +80,13 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   children: [
                     // Product Images
                     _buildProductImages(product),
-                    
+
                     // Product Details
                     _buildProductDetails(product),
-                    
+
                     // Description
                     _buildDescription(product),
-                    
+
                     // Additional Information
                     _buildAdditionalInfo(product),
                   ],
@@ -130,7 +130,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             ),
           ),
         ),
-        
+
         // Gallery Images (if available)
         if (product.galleryImages != null && product.galleryImages!.isNotEmpty)
           Container(
@@ -173,9 +173,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             product.name ?? 'No Name',
             style: TextFontStyle.textStyle20c202020DMSans600,
           ),
-          
+
           UIHelper.verticalSpace(8.h),
-          
+
           // Rating
           Row(
             children: [
@@ -196,13 +196,14 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               ),
             ],
           ),
-          
+
           UIHelper.verticalSpace(12.h),
-          
+
           // Price
           Row(
             children: [
-              if (product.onSale == true && product.salePrice?.isNotEmpty == true)
+              if (product.onSale == true &&
+                  product.salePrice?.isNotEmpty == true)
                 Text(
                   '\$${product.regularPrice ?? '0.00'}',
                   style: TextFontStyle.textStyle16c606060DMSans400.copyWith(
@@ -230,9 +231,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               ],
             ],
           ),
-          
+
           UIHelper.verticalSpace(12.h),
-          
+
           // Stock Status
           Row(
             children: [
@@ -241,7 +242,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 height: 8.h,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: (product.inStock ?? false) ? AppColors.c4CAF50 : AppColors.cF44336,
+                  color: (product.inStock ?? false)
+                      ? AppColors.c4CAF50
+                      : AppColors.cF44336,
                 ),
               ),
               UIHelper.horizontalSpace(8.w),
@@ -256,9 +259,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
               ),
             ],
           ),
-          
+
           UIHelper.verticalSpace(12.h),
-          
+
           // Categories
           if (product.categories != null && product.categories!.isNotEmpty)
             Wrap(
@@ -319,11 +322,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             style: TextFontStyle.textStyle18c202020DMSans600,
           ),
           UIHelper.verticalSpace(12.h),
-          
           _buildInfoRow('Product Type', product.type ?? 'N/A'),
           _buildInfoRow('Stock Status', product.stockStatus ?? 'N/A'),
           if (product.shortDescription?.isNotEmpty ?? false)
-            _buildInfoRow('Short Description', _cleanHtmlText(product.shortDescription!)),
+            _buildInfoRow(
+                'Short Description', _cleanHtmlText(product.shortDescription!)),
         ],
       ),
     );
@@ -359,7 +362,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
         color: AppColors.cFFFFFF,
-        border: Border(top: BorderSide(color: AppColors.cE8E8E8),),
+        border: const Border(
+          top: BorderSide(color: AppColors.cE8E8E8),
+        ),
         boxShadow: [
           BoxShadow(
             color: AppColors.c000000.withOpacity(0.1),
@@ -449,7 +454,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       reviewCount: 25,
       stockStatus: "instock",
       inStock: true,
-      description: "This is a demo product description with some details about the product features and benefits.",
+      description:
+          "This is a demo product description with some details about the product features and benefits.",
       shortDescription: "Short description of the product",
       sku: "DEMO123",
       type: "simple",
