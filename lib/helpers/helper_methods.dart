@@ -5,7 +5,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 // import 'package:http/http.dart' as http;
 import '/helpers/di.dart';
 import '../constants/app_constants.dart';
@@ -84,7 +83,7 @@ void showMaterialDialog(
             ),
             actions: <Widget>[
               customeButton(
-                  name: "No".tr,
+                  name: "No",
                   onCallBack: () {
                     Navigator.of(context).pop(false);
                   },
@@ -99,7 +98,7 @@ void showMaterialDialog(
                   ),
                   context: context),
               customeButton(
-                  name: "Yes".tr,
+                  name: "Yes",
                   onCallBack: () {
                     if (Platform.isAndroid) {
                       SystemNavigator.pop();

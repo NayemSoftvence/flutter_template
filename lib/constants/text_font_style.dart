@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:template_flutter/gen/colors.gen.dart';
+import '../../../gen/colors.gen.dart';
 
 class TextFontStyle {
   //Initialising Constractor
@@ -90,107 +90,103 @@ class TextFontStyle {
     fontWeight: FontWeight.w400,
   );
 
-
   // Add to TextFontStyle class
-static final textStyle18c172B4DDMSans500 = TextStyle(
-  fontFamily: "DMSans",
-  fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
-  color: AppColors.c172B4D,
-  fontSize: 18.sp,
-  fontWeight: FontWeight.w500,
-);
+  static final textStyle18c172B4DDMSans500 = TextStyle(
+    fontFamily: "DMSans",
+    fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
+    color: AppColors.c172B4D,
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w500,
+  );
 
-static final textStyle14c202020DMSans600 = TextStyle(
-  fontFamily: "DMSans",
-  fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
-  color: AppColors.c202020,
-  fontSize: 14.sp,
-  fontWeight: FontWeight.w600,
-);
+  static final textStyle14c202020DMSans600 = TextStyle(
+    fontFamily: "DMSans",
+    fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
+    color: AppColors.c202020,
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w600,
+  );
 
-static final textStyle12c606060DMSans400 = TextStyle(
-  fontFamily: "DMSans",
-  fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
-  color: AppColors.c606060,
-  fontSize: 12.sp,
-  fontWeight: FontWeight.w400,
-);
+  static final textStyle12c606060DMSans400 = TextStyle(
+    fontFamily: "DMSans",
+    fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
+    color: AppColors.c606060,
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w400,
+  );
 
-static final textStyle10cFFFFFFDMSans400 = TextStyle(
-  fontFamily: "DMSans",
-  fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
-  color: AppColors.cFFFFFF,
-  fontSize: 10.sp,
-  fontWeight: FontWeight.w400,
-);
-
-// Add to TextFontStyle class
-static final textStyle18c202020DMSans600 = TextStyle(
-  fontFamily: "DMSans",
-  fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
-  color: AppColors.c202020,
-  fontSize: 18.sp,
-  fontWeight: FontWeight.w600,
-);
-
-static final textStyle14cFFFFFFDMSans600 = TextStyle(
-  fontFamily: "DMSans",
-  fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
-  color: AppColors.cFFFFFF,
-  fontSize: 14.sp,
-  fontWeight: FontWeight.w600,
-);
+  static final textStyle10cFFFFFFDMSans400 = TextStyle(
+    fontFamily: "DMSans",
+    fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
+    color: AppColors.cFFFFFF,
+    fontSize: 10.sp,
+    fontWeight: FontWeight.w400,
+  );
 
 // Add to TextFontStyle class
-static final textStyle20cFFFFFFDMSans600 = TextStyle(
-  fontFamily: "DMSans",
-  fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
-  color: AppColors.cFFFFFF,
-  fontSize: 20.sp,
-  fontWeight: FontWeight.w600,
-);
+  static final textStyle18c202020DMSans600 = TextStyle(
+    fontFamily: "DMSans",
+    fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
+    color: AppColors.c202020,
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w600,
+  );
 
-
-static final textStyle14c202020DMSans500 = TextStyle(
-  fontFamily: "DMSans",
-  fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
-  color: AppColors.c202020,
-  fontSize: 14.sp,
-  fontWeight: FontWeight.w500,
-);
-
-static final textStyle12c949494DMSans400 = TextStyle(
-  fontFamily: "DMSans",
-  fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
-  color: AppColors.c949494,
-  fontSize: 12.sp,
-  fontWeight: FontWeight.w400,
-);
+  static final textStyle14cFFFFFFDMSans600 = TextStyle(
+    fontFamily: "DMSans",
+    fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
+    color: AppColors.cFFFFFF,
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w600,
+  );
 
 // Add to TextFontStyle class
-static final textStyle20c202020DMSans600 = TextStyle(
-  fontFamily: "DMSans",
-  fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
-  color: AppColors.c202020,
-  fontSize: 20.sp,
-  fontWeight: FontWeight.w600,
-);
+  static final textStyle20cFFFFFFDMSans600 = TextStyle(
+    fontFamily: "DMSans",
+    fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
+    color: AppColors.cFFFFFF,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w600,
+  );
 
-static final textStyle22cFF3A1222DMSans600 = TextStyle(
-  fontFamily: "DMSans",
-  fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
-  color: AppColors.cFF3A1222,
-  fontSize: 22.sp,
-  fontWeight: FontWeight.w600,
-);
+  static final textStyle14c202020DMSans500 = TextStyle(
+    fontFamily: "DMSans",
+    fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
+    color: AppColors.c202020,
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w500,
+  );
 
-static final textStyle16c606060DMSans400 = TextStyle(
-  fontFamily: "DMSans",
-  fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
-  color: AppColors.c606060,
-  fontSize: 16.sp,
-  fontWeight: FontWeight.w400,
-);
+  static final textStyle12c949494DMSans400 = TextStyle(
+    fontFamily: "DMSans",
+    fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
+    color: AppColors.c949494,
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w400,
+  );
 
+// Add to TextFontStyle class
+  static final textStyle20c202020DMSans600 = TextStyle(
+    fontFamily: "DMSans",
+    fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
+    color: AppColors.c202020,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w600,
+  );
 
+  static final textStyle22cFF3A1222DMSans600 = TextStyle(
+    fontFamily: "DMSans",
+    fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
+    color: AppColors.cFF3A1222,
+    fontSize: 22.sp,
+    fontWeight: FontWeight.w600,
+  );
+
+  static final textStyle16c606060DMSans400 = TextStyle(
+    fontFamily: "DMSans",
+    fontFamilyFallback: const ['Open Sans', 'Roboto', 'Noto Sans'],
+    color: AppColors.c606060,
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w400,
+  );
 }

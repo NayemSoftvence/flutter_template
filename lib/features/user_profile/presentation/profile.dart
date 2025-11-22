@@ -1,14 +1,14 @@
 // lib/features/profile/presentation/profile_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:template_flutter/common_widgets/custom_appbar.dart';
-import 'package:template_flutter/common_widgets/no_data_widget.dart';
-import 'package:template_flutter/common_widgets/not_found_widget.dart';
-import 'package:template_flutter/common_widgets/waiting_widget.dart';
-import 'package:template_flutter/constants/text_font_style.dart';
-import 'package:template_flutter/gen/colors.gen.dart';
-import 'package:template_flutter/helpers/ui_helpers.dart';
-import 'package:template_flutter/networks/api_acess.dart';
+import '../../../common_widgets/custom_appbar.dart';
+import '../../../common_widgets/no_data_widget.dart';
+import '../../../common_widgets/not_found_widget.dart';
+import '../../../common_widgets/waiting_widget.dart';
+import '../../../constants/text_font_style.dart';
+import '../../../gen/colors.gen.dart';
+import '../../../helpers/ui_helpers.dart';
+import '../../../networks/api_acess.dart';
 import '../model/user_model.dart';
 
 class ProfileScreen extends StatefulWidget {

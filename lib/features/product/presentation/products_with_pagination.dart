@@ -1,15 +1,15 @@
 // lib/features/products/presentation/products_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:template_flutter/common_widgets/custom_appbar.dart';
-import 'package:template_flutter/common_widgets/app_network_image.dart';
-import 'package:template_flutter/common_widgets/no_data_widget.dart';
-import 'package:template_flutter/common_widgets/not_found_widget.dart';
-import 'package:template_flutter/common_widgets/waiting_widget.dart';
-import 'package:template_flutter/constants/text_font_style.dart';
-import 'package:template_flutter/gen/colors.gen.dart';
-import 'package:template_flutter/helpers/ui_helpers.dart';
-import 'package:template_flutter/networks/api_acess.dart';
+import '../../../common_widgets/custom_appbar.dart';
+import '../../../common_widgets/app_network_image.dart';
+import '../../../common_widgets/no_data_widget.dart';
+import '../../../common_widgets/not_found_widget.dart';
+import '../../../common_widgets/waiting_widget.dart';
+import '../../../constants/text_font_style.dart';
+import '../../../gen/colors.gen.dart';
+import '../../../helpers/ui_helpers.dart';
+import '../../../networks/api_acess.dart';
 import '../model/product_model.dart';
 
 class ProductsScreen extends StatefulWidget {
@@ -41,7 +41,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
   }
 
   void _scrollListener() {
-    if (_scrollController.offset >= _scrollController.position.maxScrollExtent &&
+    if (_scrollController.offset >=
+            _scrollController.position.maxScrollExtent &&
         !_scrollController.position.outOfRange) {
       if (!_isLoadingMore && _hasMore) {
         _loadMoreProducts();
@@ -89,7 +90,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
         child: StreamBuilder(
           stream: getProductsRxObj.fileData,
           builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting && _currentPage == 1) {
+            if (snapshot.connectionState == ConnectionState.waiting &&
+                _currentPage == 1) {
               return const WaitingWidget();
             } else if (snapshot.hasError) {
               return const NotFoundWidget();
@@ -102,7 +104,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
                 // Check if response has the full structure with success, message, data
                 if (responseData.containsKey('success')) {
                   // Full response structure
-                  final productsResponse = ProductsResponse.fromJson(responseData);
+                  final productsResponse =
+                      ProductsResponse.fromJson(responseData);
                   data = productsResponse.data;
                 } else if (responseData.containsKey('products')) {
                   // Direct data structure (products and pagination)
@@ -131,21 +134,24 @@ class _ProductsScreenState extends State<ProductsScreen> {
               }
 
               final List<ProductModel> newProducts = data.products ?? [];
-              final PaginationModel pagination = data.pagination ?? PaginationModel();
+              final PaginationModel pagination =
+                  data.pagination ?? PaginationModel();
 
               // Update products list
               if (_currentPage == 1) {
                 _allProducts = newProducts;
               } else {
                 final existingIds = _allProducts.map((p) => p.id).toSet();
-                final uniqueNewProducts = newProducts.where((p) => !existingIds.contains(p.id)).toList();
+                final uniqueNewProducts = newProducts
+                    .where((p) => !existingIds.contains(p.id))
+                    .toList();
                 _allProducts.addAll(uniqueNewProducts);
               }
 
               // Update pagination state
               _pagination = pagination;
               _hasMore = pagination.hasNext ?? false;
-              
+
               // Reset loading state
               if (_isLoadingMore) {
                 WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -168,7 +174,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
                 children: [
                   // Products count
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -183,7 +190,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                       ],
                     ),
                   ),
-                  
+
                   // Products Grid
                   Expanded(
                     child: GridView.builder(
@@ -202,7 +209,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                         } else if (index == _allProducts.length && !_hasMore) {
                           return const SizedBox.shrink();
                         }
-                        
+
                         final product = _allProducts[index];
                         return _buildProductItem(product);
                       },
@@ -258,9 +265,9 @@ class _ProductsScreenState extends State<ProductsScreen> {
               ),
             ),
           ),
-          
+
           UIHelper.verticalSpace(8.h),
-          
+
           // Product Details
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.w),
@@ -274,16 +281,18 @@ class _ProductsScreenState extends State<ProductsScreen> {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                
+
                 UIHelper.verticalSpace(4.h),
-                
+
                 // Price
                 Row(
                   children: [
-                    if (product.onSale == true && (product.salePrice?.isNotEmpty ?? false))
+                    if (product.onSale == true &&
+                        (product.salePrice?.isNotEmpty ?? false))
                       Text(
                         '\$${product.regularPrice ?? '0.00'}',
-                        style: TextFontStyle.textStyle12c606060DMSans400.copyWith(
+                        style:
+                            TextFontStyle.textStyle12c606060DMSans400.copyWith(
                           decoration: TextDecoration.lineThrough,
                         ),
                       ),
@@ -294,9 +303,9 @@ class _ProductsScreenState extends State<ProductsScreen> {
                     ),
                   ],
                 ),
-                
+
                 UIHelper.verticalSpace(4.h),
-                
+
                 // Rating and Stock
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -316,16 +325,21 @@ class _ProductsScreenState extends State<ProductsScreen> {
                         ),
                       ],
                     ),
-                    
+
                     // Stock Status
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
                       decoration: BoxDecoration(
-                        color: (product.inStock ?? false) ? AppColors.c4CAF50 : AppColors.cF44336,
+                        color: (product.inStock ?? false)
+                            ? AppColors.c4CAF50
+                            : AppColors.cF44336,
                         borderRadius: BorderRadius.circular(4.r),
                       ),
                       child: Text(
-                        (product.inStock ?? false) ? 'In Stock' : 'Out of Stock',
+                        (product.inStock ?? false)
+                            ? 'In Stock'
+                            : 'Out of Stock',
                         style: TextFontStyle.textStyle10cFFFFFFDMSans400,
                       ),
                     ),
@@ -359,7 +373,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
           children: [
             CircularProgressIndicator(
               strokeWidth: 2.w,
-              valueColor: const AlwaysStoppedAnimation<Color>(AppColors.allPrimaryColor),
+              valueColor: const AlwaysStoppedAnimation<Color>(
+                  AppColors.allPrimaryColor),
             ),
             UIHelper.verticalSpace(8.h),
             Text(

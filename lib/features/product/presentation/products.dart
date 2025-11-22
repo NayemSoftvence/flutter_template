@@ -1,13 +1,13 @@
 // lib/features/products/presentation/products_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:template_flutter/common_widgets/custom_appbar.dart';
-import 'package:template_flutter/common_widgets/no_data_widget.dart';
-import 'package:template_flutter/common_widgets/not_found_widget.dart';
-import 'package:template_flutter/common_widgets/waiting_widget.dart';
-import 'package:template_flutter/constants/text_font_style.dart';
-import 'package:template_flutter/gen/colors.gen.dart';
-import 'package:template_flutter/networks/api_acess.dart';
+import '../../../common_widgets/custom_appbar.dart';
+import '../../../common_widgets/no_data_widget.dart';
+import '../../../common_widgets/not_found_widget.dart';
+import '../../../common_widgets/waiting_widget.dart';
+import '../../../constants/text_font_style.dart';
+import '../../../gen/colors.gen.dart';
+import '../../../networks/api_acess.dart';
 import '../../../helpers/all_routes.dart';
 import '../model/product_model.dart';
 import 'widget/product_widget.dart';
@@ -34,11 +34,12 @@ class _ProductsScreenState extends State<ProductsScreen> {
         showBackArrow: false,
         title: Text(
           "Products",
-          style: TextFontStyle.textStyle18c172B4DDMSans500.copyWith(color: AppColors.cFFFFFF),
+          style: TextFontStyle.textStyle18c172B4DDMSans500
+              .copyWith(color: AppColors.cFFFFFF),
         ),
         centerTitle: true,
         isSuffix: true,
-       actions: [
+        actions: [
           //user profile icon button
           IconButton(
             icon: const Icon(Icons.person, color: Colors.white),
@@ -46,9 +47,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
               Navigator.pushNamed(context, Routes.profile);
             },
           ),
-
-
-       ],
+        ],
       ),
       body: SafeArea(
         child: StreamBuilder(
@@ -63,7 +62,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
               Data? data;
               try {
                 if (responseData.containsKey('success')) {
-                  final productsResponse = ProductsResponse.fromJson(responseData);
+                  final productsResponse =
+                      ProductsResponse.fromJson(responseData);
                   data = productsResponse.data;
                 } else if (responseData.containsKey('products')) {
                   data = Data.fromJson(responseData);
@@ -116,5 +116,4 @@ class _ProductsScreenState extends State<ProductsScreen> {
       ),
     );
   }
-
 }

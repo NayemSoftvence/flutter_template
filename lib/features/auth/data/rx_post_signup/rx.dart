@@ -1,10 +1,9 @@
-
 import 'package:rxdart/rxdart.dart';
-import 'package:template_flutter/constants/app_constants.dart';
-import 'package:template_flutter/helpers/post_login.dart';
+import '../../../../constants/app_constants.dart';
 import '../../../../helpers/di.dart';
 import '../../../../helpers/error_message_Handler.dart';
 
+import '../../../../helpers/post_login.dart';
 import '../../../../networks/dio/dio.dart';
 import '../../../../networks/rx_base.dart';
 import 'api.dart';
@@ -19,7 +18,6 @@ final class PostSignupRx extends RxResponseInt {
     try {
       Map<String, dynamic> data = {
         // "email": email,
-
       };
       Map resdata = await api.postSignup(data);
       return await handleSuccessWithReturn(resdata);
@@ -28,8 +26,7 @@ final class PostSignupRx extends RxResponseInt {
     }
   }
 
-
- @override
+  @override
   handleSuccessWithReturn(data) async {
     String? accesstoken = data['token'];
     int id = data['data']['id'];
@@ -41,11 +38,11 @@ final class PostSignupRx extends RxResponseInt {
 
     dataFetcher.sink.add(data);
     performPostLoginActions();
-  
+
     return true;
   }
 
-@override
+  @override
   handleErrorWithReturn(error) {
     ErrorMessageHandler.showErrorToast(error); // Just one call!
     return false;

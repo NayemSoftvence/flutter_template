@@ -14,7 +14,6 @@ import '/gen/colors.gen.dart';
 import '/helpers/all_routes.dart';
 import '/helpers/navigation_service.dart';
 import '/helpers/ui_helpers.dart';
-import 'package:get_storage/get_storage.dart';
 import 'widget/social_login_button.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -25,11 +24,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final box = GetStorage();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-  
 
   bool _isLoading = false;
 
@@ -57,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
         if (success) {
           //await Future.delayed(const Duration(milliseconds: 500));
           log("Login Successful");
-             
+
           customToastMessage('Success', "You have sucessfully logged in");
           NavigationService.navigateTo(Routes.productsScreen);
         }
