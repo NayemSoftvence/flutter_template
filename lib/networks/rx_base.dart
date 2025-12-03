@@ -1,7 +1,5 @@
 import 'dart:developer';
-
 import 'package:rxdart/subjects.dart';
-
 import '../helpers/error_message_Handler.dart';
 
 abstract class RxResponseInt<T> {
